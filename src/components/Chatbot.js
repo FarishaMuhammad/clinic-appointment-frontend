@@ -81,9 +81,9 @@ const Chatbot = () => {
 			// 	}),
 			// });
 
-			if (!response.ok) {
-				throw new Error('Network response was not ok');
-			}
+			// if (!response.ok) {
+			// 	throw new Error('Network response was not ok');
+			// }
 
 			const data = "PLACEHOLDER FOR AI RESPONSE"
 			return data;
