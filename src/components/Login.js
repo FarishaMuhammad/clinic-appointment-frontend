@@ -33,6 +33,15 @@ function Login() {
 	const searchParams = new URLSearchParams(location.search);
 	const expired = searchParams.get('expired');
 
+	const showMessage = (message, type) => {
+		if (type === 'warning') {
+			setError(message); // Use for warning messages
+		} else if (type === 'success') {
+			setSuccessMessage(message); // Use for success messages
+			setSnackbarOpen(true);
+		}
+	};	
+	
 	useEffect(() => {
 		if (expired) {
 			// Show message that session expired

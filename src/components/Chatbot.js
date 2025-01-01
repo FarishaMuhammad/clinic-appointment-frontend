@@ -57,7 +57,6 @@ const Chatbot = () => {
 
 	const handleSend = async () => {
 		if (userInput.trim()) {
-			console.log(process.env.OPENAI_SECRET_KEY);
 			setResponses((prev) => [...prev, { text: userInput, sender: 'user' }]);
 			setUserInput('');
 			const aiResponse = await getAIResponse(userInput);
@@ -67,24 +66,26 @@ const Chatbot = () => {
 
 	const getAIResponse = async (input) => {
 		try {
-			const response = await fetch(`${config.apiUrl}/api/openai/chat`, {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({
-					messages: [
-						{ role: 'system', content: 'You are a helpful assistant.' },
-						{ role: 'user', content: input },
-					],
-				}),
-			});
+			// Replace with other response
+
+			// const response = await fetch(`${config.apiUrl}/api/openai/chat`, {
+			// 	method: 'POST',
+			// 	headers: {
+			// 		'Content-Type': 'application/json',
+			// 	},
+			// 	body: JSON.stringify({
+			// 		messages: [
+			// 			{ role: 'system', content: 'You are a helpful assistant.' },
+			// 			{ role: 'user', content: input },
+			// 		],
+			// 	}),
+			// });
 
 			if (!response.ok) {
 				throw new Error('Network response was not ok');
 			}
 
-			const data = await response.json();
+			const data = "PLACEHOLDER FOR AI RESPONSE"
 			return data;
 		} catch (error) {
 			console.error('Error fetching AI response:', error);
